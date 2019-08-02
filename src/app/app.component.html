@@ -1,2 +1,13 @@
 <app-header></app-header>
-<app-panel></app-panel>
+<app-panel *ngIf="gameInProgress; endGame" (finishGame)="onFinishTheGame($event)"></app-panel>
+
+<ng-template [ngSwitch]="victory" #endGame>
+  <ng-template *ngSwitchCase="true">
+    <p>Você ganhou!</p>
+    <button ></button>
+  </ng-template>
+  <ng-template *ngSwitchCase="false">
+    <p>Você é um perdedor!</p>
+    <button ></button>
+  </ng-template>
+</ng-template>
